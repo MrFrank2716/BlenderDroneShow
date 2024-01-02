@@ -6,7 +6,7 @@ __all__ = ("AddMenu",)
 
 class AddMenu(Menu):
     bl_idname = "OBJECT_MT_drone_show"
-    bl_label = "Drone show"
+    bl_label = "MCParks"
 
     def draw(self, context):
         layout = self.layout

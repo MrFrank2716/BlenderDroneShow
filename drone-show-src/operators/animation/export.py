@@ -10,7 +10,7 @@ from bpy_extras.io_utils import ExportHelper
 from ...helpers import animation as animation_helpers
 from ...helpers import drone as drone_helpers
 from ...helpers import led as led_helpers
-from ...ui import draw_check_properties
+# from ...ui import draw_check_properties
 
 __all__ = ("ExportAnimation", "ExportAnimationChecksPanel")
 
@@ -30,11 +30,11 @@ class ExportAnimation(Operator, ExportHelper):
         default="",
     )
 
-    perform_checks: bpy.props.BoolProperty(
-        name="Perform checks",
-        description="Perform checks during export",
-        default=False,
-    )
+    # perform_checks: bpy.props.BoolProperty(
+    #     name="Perform checks",
+    #     description="Perform checks during export",
+    #     default=False,
+    # )
 
     def draw(self, context):
         drone_show = context.scene.drone_show
@@ -108,29 +108,29 @@ class ExportAnimation(Operator, ExportHelper):
         return {"FINISHED"}
 
 
-class ExportAnimationChecksPanel(Panel):
-    bl_space_type = "FILE_BROWSER"
-    bl_region_type = "TOOL_PROPS"
-    bl_label = "Animation Checks"
-    bl_options = set()
+# class ExportAnimationChecksPanel(Panel):
+#     bl_space_type = "FILE_BROWSER"
+#     bl_region_type = "TOOL_PROPS"
+#     bl_label = "Animation Checks"
+#     bl_options = set()
 
-    @classmethod
-    def poll(cls, context):
-        operator = context.space_data.active_operator
-        if operator is None:
-            return False
-        return operator.bl_idname == "DRONE_SHOW_OT_export_animation"
+#     @classmethod
+#     def poll(cls, context):
+#         operator = context.space_data.active_operator
+#         if operator is None:
+#             return False
+#         return operator.bl_idname == "DRONE_SHOW_OT_export_animation"
 
-    def draw_header(self, context):
-        operator = context.space_data.active_operator
-        self.layout.prop(operator, "perform_checks", text="")
+#     def draw_header(self, context):
+#         operator = context.space_data.active_operator
+#         self.layout.prop(operator, "perform_checks", text="")
 
-    def draw(self, context):
-        layout = self.layout
-        drone_show = context.scene.drone_show
-        operator = context.space_data.active_operator
+#     def draw(self, context):
+#         layout = self.layout
+#         drone_show = context.scene.drone_show
+#         operator = context.space_data.active_operator
 
-        layout.active = operator.perform_checks
-        draw_check_properties(drone_show, layout)
-        layout.separator()
-        layout.operator("drone_show.check", text="Check animation now")
+#         layout.active = operator.perform_checks
+#         draw_check_properties(drone_show, layout)
+#         layout.separator()
+#         layout.operator("drone_show.check", text="Check animation now")

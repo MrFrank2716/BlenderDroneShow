@@ -1,16 +1,16 @@
 from bpy.types import Panel
 
-from .checks import draw_check_properties
+# from .checks import draw_check_properties
 
-__all__ = ("DroneOperatorsPanel", "LedOperatorsPanel", "AnimationPanel", "ArucoOperatorsPanel")
+__all__ = ("DroneOperatorsPanel", "LedOperatorsPanel", "AnimationPanel")
 
 
 class DroneOperatorsPanel(Panel):
     bl_idname = "VIEW3D_PT_drone"
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
-    bl_category = "Drone show"
-    bl_label = "Drones operators"
+    bl_category = "MCParks"
+    bl_label = "Drones Functions"
 
     def draw(self, context):
         layout = self.layout
@@ -43,8 +43,8 @@ class AnimationPanel(Panel):
     bl_idname = "VIEW3D_PT_animation"
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
-    bl_category = "Drone show"
-    bl_label = "Animation operators"
+    bl_category = "MCParks"
+    bl_label = "Export"
 
     def draw(self, context):
         layout = self.layout
@@ -58,24 +58,3 @@ class AnimationPanel(Panel):
         # col.operator("drone_show.check")
         col.operator("drone_show.export_animation")
 
-
-# class ArucoOperatorsPanel(Panel):
-#     bl_idname = "VIEW3D_PT_aruco"
-#     bl_space_type = "VIEW_3D"
-#     bl_region_type = "UI"
-#     bl_category = "Drone show"
-#     bl_label = "Aruco operators"
-
-#     def draw(self, context):
-#         layout = self.layout
-
-#         col = layout.column(align=True)
-#         col.operator("drone_show.add_aruco")
-#         col.operator("drone_show.generate_aruco_map")
-
-#         col = layout.column(align=True)
-#         col.operator("drone_show.import_aruco")
-#         col.operator("drone_show.export_aruco")
-
-#         col = layout.column(align=True)
-#         col.operator("outliner.orphans_purge", text="Purge unused")

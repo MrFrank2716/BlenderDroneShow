@@ -14,7 +14,6 @@ bl_info = {
 
 from . import operators, ui
 from .properties import (
-    ArucoObjectProperties,
     DroneLedProperties,
     DroneObjectProperties,
     DroneShowProperties,
@@ -24,28 +23,20 @@ classes = (
     DroneShowProperties,
     DroneObjectProperties,
     DroneLedProperties,
-    ArucoObjectProperties,
     operators.ExportAnimation,
-    operators.ExportAnimationChecksPanel,
-    operators.CheckSwarmAnimation,
+    #operators.ExportAnimationChecksPanel,
+    #operators.CheckSwarmAnimation,
     operators.AssignDrones,
     operators.SelectDrones,
-    operators.SetLedColor,
-    operators.SetLedRainbow,
-    operators.AddAruco,
-    operators.ExportAruco,
-    operators.GenerateArucoMap,
-    operators.ImportAruco,
+    #operators.SetLedColor,
+    #operators.SetLedRainbow,
     ui.DronePanel,
     ui.DroneCoordsPanel,
     ui.DroneLedPanel,
     ui.LedPanel,
-    ui.ArucoPanel,
-    ui.ArucoCoordsPanel,
     ui.DroneOperatorsPanel,
-    ui.LedOperatorsPanel,
+    #ui.LedOperatorsPanel,
     ui.AnimationPanel,
-    ui.ArucoOperatorsPanel,
     ui.AddMenu,
 )
 
@@ -56,16 +47,6 @@ def export_animation_menu(self, context):
     )
 
 
-def export_aruco_menu(self, context):
-    self.layout.operator(
-        operators.ExportAruco.bl_idname, text="Aruco markers map (.txt)"
-    )
-
-
-def import_aruco_menu(self, context):
-    self.layout.operator(
-        operators.ImportAruco.bl_idname, text="Aruco markers map (.txt)"
-    )
 
 
 def add_menu(self, context):
@@ -85,14 +66,9 @@ def register():
     bpy.types.Scene.drone_show = bpy.props.PointerProperty(type=DroneShowProperties)
 
     bpy.types.Object.drone = bpy.props.PointerProperty(type=DroneObjectProperties)
-    bpy.types.Material.led = bpy.props.PointerProperty(type=DroneLedProperties)
-
-    bpy.types.Object.aruco = bpy.props.PointerProperty(type=ArucoObjectProperties)
+    # bpy.types.Material.led = bpy.props.PointerProperty(type=DroneLedProperties)
 
     bpy.types.TOPBAR_MT_file_export.append(export_animation_menu)
-    bpy.types.TOPBAR_MT_file_export.append(export_aruco_menu)
-
-    bpy.types.TOPBAR_MT_file_import.append(import_aruco_menu)
 
     bpy.types.VIEW3D_MT_add.append(add_menu)
 
@@ -108,12 +84,9 @@ def unregister():
     del bpy.types.Object.drone
     del bpy.types.Material.led
 
-    del bpy.types.Object.aruco
+
 
     bpy.types.TOPBAR_MT_file_export.remove(export_animation_menu)
-    bpy.types.TOPBAR_MT_file_export.remove(export_aruco_menu)
-
-    bpy.types.TOPBAR_MT_file_import.remove(import_aruco_menu)
 
     bpy.types.VIEW3D_MT_add.remove(add_menu)
 

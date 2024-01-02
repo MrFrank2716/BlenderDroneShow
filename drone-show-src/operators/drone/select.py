@@ -8,7 +8,7 @@ __all__ = ("SelectDrones",)
 
 class SelectDrones(Operator):
     bl_idname = "drone_show.select"
-    bl_label = "Select all drones"
+    bl_label = "Select drones"
     bl_description = "Select all drone objects"
 
     def execute(self, context):
