@@ -33,7 +33,7 @@ class ExportAnimation(Operator, ExportHelper):
     perform_checks: bpy.props.BoolProperty(
         name="Perform checks",
         description="Perform checks during export",
-        default=True,
+        default=False,
     )
 
     def draw(self, context):
@@ -85,12 +85,13 @@ class ExportAnimation(Operator, ExportHelper):
                 frames = animation_helpers.extract_animation(
                     context.scene, drone_obj, led_material
                 )
+                animation_writer.writerow("Time(Frame), X(m), Y(m), Z(m), Red, Green, Blue")
                 for frame in frames:
                     animation_writer.writerow(
                         (
                             frame.number,
                             *frame.position_round,
-                            frame.yaw_round,
+                            # frame.yaw_round,
                             *frame.led_color_export,
                         )
                     )

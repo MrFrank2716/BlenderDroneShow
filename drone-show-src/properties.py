@@ -9,14 +9,14 @@ class DroneShowProperties(PropertyGroup):
     check_led: bpy.props.BoolProperty(
         name="Check LEDs",
         description="Check LEDs material on drones",
-        default=True,
+        default=False,
         options=set(),
     )
 
     check_speed: bpy.props.BoolProperty(
         name="Check speed",
         description="Check maximum drone movement speed",
-        default=True,
+        default=False,
         options=set(),
     )
 
@@ -34,7 +34,7 @@ class DroneShowProperties(PropertyGroup):
     check_distance: bpy.props.BoolProperty(
         name="Check distance",
         description="Check distance between drones",
-        default=True,
+        default=False,
         options=set(),
     )
 
@@ -79,7 +79,7 @@ class DroneObjectProperties(PropertyGroup):
 class DroneLedProperties(PropertyGroup):
     is_led: bpy.props.BoolProperty(
         name="Is LED color",
-        default=False,
+        default=True,
         options=set(),
     )
 

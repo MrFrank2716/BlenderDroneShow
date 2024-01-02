@@ -8,7 +8,7 @@ __all__ = ("AssignDrones",)
 
 class AssignDrones(Operator):
     bl_idname = "drone_show.assign"
-    bl_label = "Assign drones"
+    bl_label = "Assign object as drones"
     bl_description = "Assign selected objects as drones"
 
     def execute(self, context):
