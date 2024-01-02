@@ -1,14 +1,14 @@
 import bpy
 
 bl_info = {
-    "name": "Drone show animation (.csv)",
-    "author": "Artem Vasiunik & Arthur Golubtsov",
+    "name": "MCParks Drone Exporter (.csv)",
+    "author": "Forked from Artem Vasiunik & Arthur Golubtsov",
     "version": (1, 4, 0),
     "blender": (3, 2, 2),
-    "location": "File > Export > Drone show animation (.csv)",
-    "description": "Export > Drone show animation (.csv)",
-    "doc_url": "https://github.com/DroneLegion/BlenderDroneShow/blob/master/README.md",
-    "tracker_url": "https://github.com/DroneLegion/BlenderDroneShow/issues",
+    "location": "File > Export > MCParks Drone Show (.csv)",
+    "description": "Export > MCParks Drone Show (.csv)",
+    "doc_url": "https://github.com/MrFrank2716/BlenderDroneShow/blob/master/README.md",
+    "tracker_url": "https://github.com/MrFrank2716/BlenderDroneShow/issues",
     "category": "Import-Export",
 }
 
